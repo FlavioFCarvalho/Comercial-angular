@@ -32,7 +32,9 @@ import { PainelNegociacaoComponent } from './painel-negociacao/painel-negociacao
     ButtonModule,
     ToastModule,
   ],
-  providers: [MessageService],
+  providers: [
+    //Message do primeng
+    MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

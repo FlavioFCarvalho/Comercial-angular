@@ -14,7 +14,8 @@ export class PainelNegociacaoComponent implements OnInit {
   oportunidade = {};
   oportunidades = [];
 
-  constructor(private oportunidadeService: OportunidadeService) { }
+  constructor(private oportunidadeService: OportunidadeService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.consultar();
@@ -31,6 +32,11 @@ export class PainelNegociacaoComponent implements OnInit {
       .subscribe(() => {
         this.oportunidade = {};
         this.consultar();
+
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Oportunidade adicionada com sucesso'
+        });
       });
   }
 }
