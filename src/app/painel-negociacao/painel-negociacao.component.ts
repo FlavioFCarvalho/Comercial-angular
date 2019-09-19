@@ -37,6 +37,17 @@ export class PainelNegociacaoComponent implements OnInit {
           severity: 'success',
           summary: 'Oportunidade adicionada com sucesso'
         });
-      });
+      },
+        resposta => {
+          let msg = 'Erro inesperado. Tente novamente';
+
+          if (resposta.error.message) {
+            msg = resposta.error.message;
+          }
+          this.messageService.add({
+            severity: 'error',
+            summary: msg
+          });
+        });
   }
 }
