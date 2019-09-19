@@ -25,6 +25,7 @@ import { PainelNegociacaoComponent } from './painel-negociacao/painel-negociacao
     FormsModule,
     HttpClientModule,
 
+    //Importações do primeng
     TableModule,
     PanelModule,
     InputTextModule,

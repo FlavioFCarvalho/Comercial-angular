@@ -10,16 +10,27 @@ import { MessageService } from 'primeng/api';
 })
 export class PainelNegociacaoComponent implements OnInit {
 
+
+  oportunidade = {};
   oportunidades = [];
 
   constructor(private oportunidadeService: OportunidadeService) { }
 
   ngOnInit() {
+    this.consultar();
+  }
+
+  consultar() {
     this.oportunidadeService.listar()
       .subscribe(resposta => this.oportunidades = <any>resposta);
     console.log("oportunidades");
   }
 
-
-
+  adicionar() {
+    this.oportunidadeService.adicionar(this.oportunidade)
+      .subscribe(() => {
+        this.oportunidade = {};
+        this.consultar();
+      });
+  }
 }
